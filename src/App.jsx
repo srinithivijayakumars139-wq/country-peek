@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route
-            path="/country/:name"
+            path="/country/:code"
             element={<CountryPage />}
           />
 
