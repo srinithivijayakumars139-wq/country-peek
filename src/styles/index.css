@@ -1,16 +1,54 @@
 * {
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #f5f5f5;
+
+  --text: #222;
+
+  --card-bg: #ffffff;
+
+  --header-bg: #2563eb;
+
+  --input-border: #ccc;
+}
+
+[data-theme='dark'] {
+  --bg: #121212;
+
+  --text: #f1f1f1;
+
+  --card-bg: #1e1e1e;
+
+  --header-bg: #0f172a;
+
+  --input-border: #444;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-  color: #222;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background-color: var(--bg);
+
+  color: var(--text);
+
+  min-height: 100vh;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 a {
   text-decoration: none;
+
   color: inherit;
 }

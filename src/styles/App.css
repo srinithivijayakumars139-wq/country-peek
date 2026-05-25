@@ -247,3 +247,89 @@
 .page-status--error {
   color: crimson;
 }
+
+.filter-bar {
+  display: flex;
+
+  gap: 1rem;
+
+  padding: 1rem 0;
+
+  flex-wrap: wrap;
+}
+
+.filter-bar select {
+  padding: 0.7rem 1rem;
+
+  border-radius: 8px;
+
+  border: 1px solid
+    var(--input-border);
+
+  background-color: var(
+    --card-bg
+  );
+
+  color: var(--text);
+
+  font-size: 1rem;
+}
+
+.theme-toggle {
+  padding: 0.5rem 1rem;
+
+  border-radius: 8px;
+
+  border: 1px solid white;
+
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.header {
+  background-color: var(
+    --header-bg
+  );
+}
+
+.card {
+  background-color: var(
+    --card-bg
+  );
+
+  color: var(--text);
+}
+
+.search-bar__input {
+  background-color: var(
+    --card-bg
+  );
+
+  color: var(--text);
+
+  border: 1px solid
+    var(--input-border);
+}
+
+.country-page {
+  color: var(--text);
+}
+
+.back-btn {
+  background-color: var(
+    --card-bg
+  );
+
+  color: var(--text);
+}
+
+.border-badge {
+  background-color: var(
+    --card-bg
+  );
+
+  color: var(--text);
+}
