@@ -333,3 +333,18 @@
 
   color: var(--text);
 }
+
+.fav-btn {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  color: var(--text);
+}
+
+.fav-btn--saved {
+  color: crimson;
+  font-weight: bold;
+}
