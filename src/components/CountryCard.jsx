@@ -62,13 +62,32 @@ function CountryCard({ country }) {
         </p>
 
         <button
-          className={`fav-btn ${
-            isSaved ? 'fav-btn--saved' : ''
-          }`}
-          onClick={handleFavourite}
-        >
-          {isSaved ? '♥ Saved' : '♡ Save'}
-        </button>
+          className={`fav-btn ${isSaved ? 'fav-btn--saved' : ''}`}
+          aria-label={
+            isSaved
+              ? `Remove ${name.common} from favourites`
+              : `Save ${name.common} to favourites`
+          }
+          aria-pressed={isSaved}
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+
+            if (isSaved) {
+              dispatch({
+                type: 'REMOVE_FAVOURITE',
+                payload: cca3,
+              })
+            } else {
+              dispatch({
+                type: 'ADD_FAVOURITE',
+                payload: country,
+            })
+          }
+        }}
+>
+        {isSaved ? '♥ Saved' : '♡ Save'}
+      </button>
       </div>
     </Link>
   )
