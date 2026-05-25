@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useFavourites } from '../context/FavouritesContext'
 
 function CountryCard({ country }) {
   const {
@@ -10,14 +11,34 @@ function CountryCard({ country }) {
     cca3,
   } = country
 
+  const { favourites, dispatch } = useFavourites()
+
+  const isSaved = favourites.some(
+    (fav) => fav.cca3 === cca3
+  )
+
+  function handleFavourite(e) {
+    e.preventDefault()
+    e.stopPropagation()
+
+    if (isSaved) {
+      dispatch({
+        type: 'REMOVE_FAVOURITE',
+        payload: cca3,
+      })
+    } else {
+      dispatch({
+        type: 'ADD_FAVOURITE',
+        payload: country,
+      })
+    }
+  }
+
   return (
-    <Link
-      to={`/country/${cca3}`}
-      className="card"
-    >
+    <Link to={`/country/${cca3}`} className="card">
       <img
         src={flags.svg}
-        alt={`Flag of ${name.common}`}
+        alt={`${name.common} flag`}
         className="card__flag"
       />
 
@@ -39,6 +60,15 @@ function CountryCard({ country }) {
           <span>Capital:</span>{' '}
           {capital?.[0] ?? 'N/A'}
         </p>
+
+        <button
+          className={`fav-btn ${
+            isSaved ? 'fav-btn--saved' : ''
+          }`}
+          onClick={handleFavourite}
+        >
+          {isSaved ? '♥ Saved' : '♡ Save'}
+        </button>
       </div>
     </Link>
   )
